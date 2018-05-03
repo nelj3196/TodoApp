@@ -1,0 +1,49 @@
+
+
+var todo = [];
+var userInput = prompt("What would yo like to do?");
+
+window.setTimeout(function(){
+while(userInput !== "quit") {
+
+	if(userInput === "list") {
+		listItems();
+	}
+
+	else if(userInput === "new") {
+		addItem();
+	}
+
+	else if(userInput === "delete") {
+		deleteItem();
+	}
+
+	userInput = prompt("What would you like to do?");
+}
+
+// Function for listing items in todos
+function listItems() {
+	console.log("**********");
+	todo.forEach(function(item, index) {
+		console.log(index + " : " + item);
+	});
+	console.log("**********");
+}
+
+// Function for adding new item to todo
+function addItem() {
+	var newTodo = prompt("Enter new todo");
+	todo.push(newTodo);
+	console.log("Item added to todos");	
+}
+
+// Function for deleting an item from the todos
+function deleteItem() {
+	// Ask user for index of item to be deleted
+ 	var deleteItem = prompt("enter index number of item to be deleted");
+	// Delete the item in todo
+	todo.splice(deleteItem, 1);
+	console.log("Item deleted from todo");
+}
+console.log("You have quit the app")
+}, 500);
